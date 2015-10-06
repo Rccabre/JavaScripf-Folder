@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Magic 8 Ball</title>
+<link rel="stylesheet" hrfe="'https://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'">
+<style>
+
+	#eight-ball{
+	background-image: url("soccer1.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	margin: 0;
+	text-align: center;
+	font-family: 'Russo One', sans-serif;
+	font-size: 2rem;
+    display: block;
+    width: auto;
+    height: 1500px;
+
+}
+</style>
+</head>
+
+
+<body>
+
+	 <div id="eight-ball">
+	 	<button onclick="shake()">Ask about SOCCER</button>
+        <p id="question"></p>
+        <p id="answer"></p>
+   <div>     
+
+<script>
+    // Click Shake  buttom
+    function shake(){
+
+    	var question = prompt("Ask me a question");
+    	var questionText = document.getElementById('question');
+    	questionText.innerHTML = question;
+
+// Number of possible answers
+var numberOfAnswers = [answer];
+
+//Anwers to 8 Ball 
+
+var answers = ['<img src= "images/soccer.jpg"/>', '<img src="images/yes.jpg"/>', '<img src= "images/messi.jpg"/>', '<img src= "images/calm.jpg"/>', '<img src="images/fcb.jpg"/>'];
+var numberOfAnswers = answers.length;
+
+
+var chosenAnswer = getAnswerNumber(numberOfAnswers);        
+        displayAnswer(chosenAnswer);
+
+        // Returns a number based on the number of sides
+        function getAnswerNumber(answerCount){
+            var number = getRandomInt(0,answerCount);
+            return number;
+        }
+
+        // Returns a random integer between two numbers
+        function getRandomInt(min,max){
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        // Show our answer in the document 
+        function displayAnswer(answer) {
+
+            // Access the DOM element we want to to change
+            var fortuneText = document.getElementById('answer');
+
+            
+                fortuneText.innerHTML = answers[answer];
+            
+           
+        }
+
+    }
+</script>
+</body>
+</html>
